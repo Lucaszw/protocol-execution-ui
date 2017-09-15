@@ -18,12 +18,12 @@ class ProtocolExecutionUI extends UIPlugin {
     this.on("stop-experiment", this.onStopExperiment.bind(this));
     this.executablePlugins.on("all", this.onExecutablePluginsUpdated.bind(this));
 
-    this.onStateMsg("protocol-model", "steps", this.onStepsUpdated.bind(this));
-    this.onStateMsg("protocol-model", "step-number", this.onStepNumberUpdated.bind(this));
+    this.onStateMsg("step-model", "steps", this.onStepsUpdated.bind(this));
+    this.onStateMsg("step-model", "step-number", this.onStepNumberUpdated.bind(this));
     this.onSignalMsg("{plugin}", "executable-plugin-found", this.onExecutablePluginFound.bind(this));
     this.onSignalMsg("{plugin}", "step-complete", this.onStepComplete.bind(this));
 
-    this.bindPutMsg("protocol-model", "step-number", "update-step-number");
+    this.bindPutMsg("step-model", "step-number", "update-step-number");
     this.bindSignalMsg("find-executable-plugins", "find-executable-plugins");
     this.bindSignalMsg("run-step", "run-step");
   }
