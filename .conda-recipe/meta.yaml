@@ -1,40 +1,29 @@
 # source will be downloaded prior to filling in jinja templates
 # Example assumes that this folder has setup.py in it
+
 source:
   git_url: ../
 
-package:
-  name: microdrop.droplet-planning-plugin
-{% if GIT_DESCRIBE_NUMBER > '0' %}
-  version: {{ GIT_DESCRIBE_TAG[1:] }}.post{{ GIT_DESCRIBE_NUMBER }}
-{% else %}
-  version: {{ GIT_DESCRIBE_TAG[1:] }}
+{% if "GIT_DESCRIBE_NUMBER" not in environ %}
+{% set VERSION_NUMBER = "0+unknown"  %}
+{% elif GIT_DESCRIBE_NUMBER > '0'  %}
+{% set VERSION_NUMBER = GIT_DESCRIBE_TAG[1:] + ".post" + GIT_DESCRIBE_NUMBER %}
+{% else  %}
+{% set VERSION_NUMBER = GIT_DESCRIBE_TAG[1:] %}
 {% endif %}
+
+package:
+  name: microdrop.protocol-execution-ui-plugin
+  version: {{ VERSION_NUMBER }}
 
 build:
   number: 0
-  script: python -m mpm.bin.build
+  script: python -m mpm.bin.build --versionNumber {{ VERSION_NUMBER }}
 
 requirements:
   build:
-    - flatland-fork
-    - flatland-helpers
-    - microdrop-plugin-manager >=0.11
-    - pandas
-    - path_helpers >=0.2.post4
-    - pandas-helpers
-    - paho-mqtt-helpers >=0.2
-    - si-prefix
-
-  run:
-    - flatland-fork
-    - flatland-helpers
-    - pandas
-    - path_helpers >=0.2.post4
-    - pandas-helpers
-    - paho-mqtt-helpers >=0.2
-    - si-prefix
+    - microdrop-plugin-manager >=0.5.post103-0
 
 about:
-  home: https://github.com/Lucaszw/droplet-planning-plugin
+  home: https://github.com/Lucaszw/protocol-execution-ui-plugin
   license: GPL
