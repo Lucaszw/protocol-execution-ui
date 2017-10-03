@@ -160,5 +160,4 @@ class ProtocolExecutionUI extends UIPlugin {
   }
 }
 
-if (!window.microdropPlugins) window.microdropPlugins = new Map();
 window.microdropPlugins.set("ProtocolExecutionUI", ProtocolExecutionUI);
