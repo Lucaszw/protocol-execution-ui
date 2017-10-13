@@ -7,7 +7,6 @@ class ProtocolExecutionUI extends UIPlugin {
     this.stepNumber = null;
     this.steps = null;
     this.controls = this.Controls();
-    this.listen();
   }
   // ** Event Listeners **
   listen() {
