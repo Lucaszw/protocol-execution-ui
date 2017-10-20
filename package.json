@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "protocol-execution-ui.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucaszw/protocol-execution-ui.git"
+  },
+  "author": "Sci-Bots",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Lucaszw/protocol-execution-ui/issues"
+  },
+  "homepage": "https://github.com/Lucaszw/protocol-execution-ui#readme",
+  "dependencies": {
+    "yo-yo": "^1.4.1"
+  }
+}
