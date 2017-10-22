@@ -7,9 +7,6 @@ class ProtocolExecutionUI extends UIPlugin {
     this.maxWaitTime = 10000;
     this.render();
   }
-  listen() {
-    this.bindSignalMsg("register-plugins", "register");
-  }
   async play() {
     const microdrop = new MicrodropAsync();
     const steps = await microdrop.steps.steps();
@@ -44,7 +41,7 @@ class ProtocolExecutionUI extends UIPlugin {
   }
 
   render(status="stopped", stepNumber='') {
-    let badge;
+    let badge = "default";
     if (status == "running")  badge = "warning";
     if (status == "stopped")  badge = "default";
     if (status == "complete") badge = "success";
